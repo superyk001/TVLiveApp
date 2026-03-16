@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- 
+        Ensure shared preferences are backed up and restored during
+        cloud backup and restore.
+        -->
+        <include domain="sharedpref" path="."/>
+        <exclude domain="sharedpref" path="first_launch.xml"/>
+    </cloud-backup>
+</data-extraction-rules>

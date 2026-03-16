@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">电视直播</string>
+    <string name="action_settings">设置</string>
+    <string name="action_search">搜索</string>
+    <string name="action_favorite">收藏</string>
+    <string name="action_import">导入</string>
+    <string name="channel_list">频道列表</string>
+    <string name="favorites">我的收藏</string>
+    <string name="search_hint">搜索频道...</string>
+    <string name="import_title">导入频道</string>
+    <string name="import_hint">输入 M3U 播放列表 URL</string>
+    <string name="no_channels">暂无频道</string>
+    <string name="import_prompt">点击右上角导入按钮添加频道</string>
+    <string name="loading">加载中...</string>
+    <string name="error">错误</string>
+    <string name="retry">重试</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="playing">正在播放</string>
+    <string name="buffering">缓冲中...</string>
+</resources>

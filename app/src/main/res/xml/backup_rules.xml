@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- 
+   Exclude the shared preferences file that contains the
+   "first_launch" preference because it should not be synced across devices.
+    -->
+    <exclude domain="sharedpref" path="first_launch.xml"/>
+</full-backup-content>
