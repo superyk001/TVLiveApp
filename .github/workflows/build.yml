@@ -20,22 +20,30 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
       
-    - name: Make gradlew executable
+    - name: Create Gradle Wrapper
       run: |
-        if [ -f gradlew ]; then
-          chmod +x gradlew
-        fi
+        mkdir -p gradle/wrapper
+        cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
+        distributionBase=GRADLE_USER_HOME
+        distributionPath=wrapper/dists
+        distributionUrl=https\\://services.gradle.org/distributions/gradle-8.2-bin.zip
+        networkTimeout=10000
+        validateDistributionUrl=true
+        zipStoreBase=GRADLE_USER_HOME
+        zipStorePath=wrapper/dists
+        EOF
         
-    - name: Generate Gradle Wrapper (if missing)
-      run: |
-        if [ ! -f gradlew ]; then
-          gradle wrapper --gradle-version 8.2
-          chmod +x gradlew
-        fi
-      
+        curl -L -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.2.0/subprojects/wrapper/src/main/resources/gradle-wrapper.jar
+        
+        cat > gradlew << 'EOF'
+        #!/bin/sh
+        exec java -cp "$(dirname "$0")/gradle/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain "$@"
+        EOF
+        chmod +x gradlew
+        
     - name: Build Release APK
       run: ./gradlew assembleRelease
       
