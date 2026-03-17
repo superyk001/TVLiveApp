@@ -15,7 +15,7 @@ exoplayer = "1.2.0"
 retrofit = "2.9.0"
 okhttp = "4.12.0"
 gson = "2.10.1"
-hilt = "2.48"
+hilt = "2.50"
 leanback = "1.0.0"
 glide = "1.0.0-beta01"
 
