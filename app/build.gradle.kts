@@ -9,6 +9,10 @@ android {
     namespace = "com.tvlive"
     compileSdk = 34
 
+    hilt {
+        enableAggregatingTask = false
+    }
+
     defaultConfig {
         applicationId = "com.tvlive"
         minSdk = 21
